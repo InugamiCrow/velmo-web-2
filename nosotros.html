@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros — VELMO</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #D4860A;
+    --gold-light: #E6A052;
+    --green-1: #567A40;
+    --green-2: #446A3B;
+    --green-3: #1A3327;
+    --green-dark: #0e1e14;
+    --cream: #F2EDE4;
+    --cream-light: #F8F4EE;
+    --text-dark: #1a1a1a;
+    --text-mid: #444;
+    --text-light: #777;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--cream-light);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAVBAR ── */
+  .navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10,15,12,0.95); /* este es el color correcto, casi negro */
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 60px; /* igual al index */
+  border-bottom: 1px solid rgba(230,160,82,0.15);
+}
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .nav-brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: #fff;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .nav-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255,255,255,0.75);
+    display: flex;
+    align-items: center;
+    transition: color 0.2s;
+  }
+  .nav-icon-btn:hover { color: var(--gold-light); }
+  .nav-icon-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+
+  /* ── HERO ── */
+  .about-hero {
+    position: relative;
+    min-height: 480px;
+    background-image: url('img/nosotros_hero.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 60px 60px;
+    margin-top: 60px;
+    overflow: hidden;
+    background-image: url('img/espalda_pareja.png');
+  }
+  .about-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, rgba(10,26,18,0.92) 35%, rgba(10,26,18,0.5) 65%, rgba(10,26,18,0.2) 100%);
+  }
+  .about-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0; right: 0;
+    height: 0 px;
+    background: linear-gradient(to bottom, transparent, var(--cream-light));
+  }
+  .hero-text { position: relative; z-index: 2; max-width: 520px; }
+  .hero-text h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 80px; font-weight: 900;
+    text-transform: uppercase; color: #fff;
+    line-height: 0.9; margin-bottom: 10px;
+  }
+  .hero-text .hero-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px;
+  }
+  .hero-text p {
+    font-size: 15px; line-height: 1.7;
+    color: rgba(255,255,255,0.72); max-width: 400px;
+  }
+
+  /* brush stroke divider */
+  .brush-divider {
+    width: 100%;
+    height: 48px;
+    background: var(--cream-light);
+    position: relative;
+    overflow: hidden;
+  }
+  .brush-divider svg { width: 100%; height: 100%; display: block; }
+
+  /* ── STORY SECTION ── */
+ .story-section {
+  background: var(--cream-light);
+  padding: 60px 60px 70px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr 220px;
+  gap: 40px;
+  align-items: stretch; /* esto es lo único que cambia aquí */
+}
+
+/* left col */
+.story-left {}
+
+.story-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.story-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 42px; font-weight: 900;
+  line-height: 1.0; color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.story-title-accent {
+  display: block; color: var(--text-dark);
+}
+
+.story-divider {
+  width: 40px; height: 3px;
+  background: var(--gold); margin-bottom: 20px;
+}
+
+.story-body p {
+  font-size: 13px; line-height: 1.8;
+  color: var(--text-mid); margin-bottom: 12px;
+}
+
+/* right col - iconos */
+.story-values {
+  background: var(--green-3);
+  border-radius: 4px;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.story-value-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.story-value-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(230,160,82,0.12);
+  border: 2px solid rgba(230,160,82,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.story-value-icon:hover {
+  background: rgba(230,160,82,0.22);
+  border-color: var(--gold);
+}
+
+.story-value-icon svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 2;
+}
+
+.story-value-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.story-value-sep {
+  width: 40px;
+  height: 1px;
+  background: rgba(230,160,82,0.2);
+  margin: 0 auto;
+}
+  /* center col - founder photos */
+  .founders-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .founder-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--green-2);
+  }
+  .founder-card img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(20%);
+    transition: filter 0.3s, transform 0.4s;
+  }
+  .founder-card:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+  }
+  .founder-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(10,26,18,0.9) 0%, transparent 100%);
+    padding: 24px 14px 14px;
+  }
+  .founder-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); line-height: 1;
+  }
+  .founder-role {
+    font-size: 11px; color: rgba(255,255,255,0.65);
+    letter-spacing: 1px; margin-top: 2px;
+  }
+
+  /* right col - icons */
+  .story-values {
+    background: var(--green-3);
+    border-radius: 4px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .story-value-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .story-value-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .story-value-icon svg {
+    width: 36px; height: 36px;
+    stroke: var(--gold-light); fill: none; stroke-width: 1.5;
+  }
+  .story-value-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: #fff; line-height: 1.3;
+  }
+  .story-value-sep {
+    width: 30px; height: 1px;
+    background: rgba(230,160,82,0.25);
+    margin: 0 auto;
+  }
+
+  /* ── MISSION VISION VALUES ── */
+  .mvv-section {
+    background: var(--cream);
+    padding: 60px 60px;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .mvv-card {
+    padding: 32px 36px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+  }
+  .mvv-card:last-child { border-right: none; }
+  .mvv-icon {
+    width: 52px; height: 52px;
+    background: transparent;
+    border: 1.5px solid rgba(212,134,10,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .mvv-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--gold); fill: none; stroke-width: 1.8;
+  }
+  .mvv-label {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 6px;
+  }
+  .mvv-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 800;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-dark); margin-bottom: 14px;
+  }
+  .mvv-body {
+    font-size: 13px; line-height: 1.8;
+    color: var(--text-mid);
+  }
+  .mvv-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .mvv-list li {
+    font-size: 13px; color: var(--text-mid);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .mvv-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── PITALITO SECTION ── */
+  .pitalito-section {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.pitalito-left {
+  position: relative;
+  z-index: 2;
+  width: 50%;
+  padding: 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: transparent;
+}
+
+.pitalito-eyebrow {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 10px;
+}
+
+.pitalito-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 44px; font-weight: 900;
+  line-height: 1.0; color: #fff;
+  margin-bottom: 12px;
+}
+
+.pitalito-divider {
+  width: 40px; height: 3px;
+  background: var(--gold); margin-bottom: 20px;
+}
+
+.pitalito-body p {
+  font-size: 13px; line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 12px; max-width: 360px;
+}
+
+.pitalito-hashtag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700;
+  letter-spacing: 2px; color: var(--gold);
+  margin-top: 8px;
+}
+
+/* imagen ocupa todo el fondo */
+.pitalito-right {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pitalito-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* degradado de izquierda a derecha sobre toda la sección */
+.pitalito-right::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 51, 39, 1) 0%,
+    rgba(26, 51, 39, 0.85) 40%,
+    rgba(26, 51, 39, 0.3) 70%,
+    rgba(26, 51, 39, 0.0) 100%
+  );
+  z-index: 1;
+}
+
+.location-badge {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 2;
+  background: rgba(10,26,18,0.85);
+  border: 1px solid rgba(230,160,82,0.3);
+  border-radius: 4px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+  /* location badge */
+  .location-badge {
+    position: absolute;
+    bottom: 40px; right: 40px;
+    z-index: 2;
+    background: rgba(10,26,18,0.85);
+    border: 1px solid rgba(230,160,82,0.3);
+    border-radius: 4px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .location-badge svg {
+    width: 40px; height: 50px;
+    stroke: rgba(240,236,228,0.5); fill: none; stroke-width: 1;
+    flex-shrink: 0;
+  }
+  .location-badge-text {}
+  .location-badge-label {
+    font-size: 9px; letter-spacing: 3px;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    margin-bottom: 2px;
+  }
+  .location-badge-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 28px; font-weight: 900;
+    font-style: italic; text-transform: uppercase;
+    color: var(--gold); line-height: 1;
+  }
+  .location-badge-sub {
+    font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── FOOTER STRIP ── */
+  .footer-strip {
+    background: var(--green-dark);
+    border-top: 3px solid var(--gold);
+    padding: 22px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .fstrip-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+  .fstrip-icon {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fstrip-icon svg {
+    width: 26px; height: 26px;
+    stroke: var(--gold-light); fill: none; stroke-width: 1.5;
+  }
+  .fstrip-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+  .fstrip-sep {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  /* ── MAIN FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    padding: 48px 60px 28px;
+    border-top: 1px solid rgba(230,160,82,0.15);
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 1fr 1fr 160px;
+    gap: 32px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 24px;
+  }
+  .footer-logo-col {
+    display: flex; align-items: center; justify-content: center;
+  }
+  .footer-logo-img {
+    width: 100%; max-width: 160px; height: auto; display: block;
+    filter: brightness(0) invert(1);
+  }
+  .footer-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: #fff; margin-bottom: 14px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .footer-col ul a {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    text-decoration: none; transition: color 0.2s; letter-spacing: 0.5px;
+  }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-social h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    color: #fff; margin-bottom: 14px;
+  }
+  .social-icons { display: flex; gap: 10px; }
+  .social-icon {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.2s, border-color 0.2s;
+  }
+  .social-icon:hover { background: rgba(230,160,82,0.15); border-color: rgba(230,160,82,0.4); }
+  .social-icon svg { width: 14px; height: 14px; stroke: rgba(255,255,255,0.6); fill: none; stroke-width: 1.8; }
+  .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+  .footer-copy { font-size: 11px; color: rgba(255,255,255,0.22); letter-spacing: 0.5px; }
+  .footer-copy span { color: var(--gold); }
+
+  /* WhatsApp float */
+  .whatsapp-float {
+    position: fixed; bottom: 32px; right: 32px; z-index: 999;
+    width: 60px; height: 60px; border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float-bounce 3s ease-in-out infinite;
+  }
+  .whatsapp-float img { width: 100%; height: 100%; border-radius: 50%; display: block; }
+  .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 8px 32px rgba(0,0,0,0.4); animation-play-state: paused; }
+  @keyframes float-bounce {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="img/Velmo_logo_horizontal.png" alt="Velmo" style="height: 100px; width: auto;">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#productos">Productos</a></li>
+    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+    <li><a href="index.html#sostenibilidad">Sostenibilidad</a></li>
+    <li><a href="index.html#contacto">Contacto</a></li>
+  </ul>
+
+  <div class="nav-icons">
+    <button class="nav-icon-btn" aria-label="Buscar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
+    </button>
+    <button class="nav-icon-btn" aria-label="Cuenta">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+    </button>
+    <button class="nav-icon-btn" aria-label="Carrito">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-text">
+    <h1>ABOUT<br>US</h1>
+    <p class="hero-tagline">Wear your purpose. Move your world.</p>
+    <p>En Velmo diseñamos ropa deportiva que te acompaña a superar tus límites, con propósito, estilo y respeto por la naturaleza.</p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-grid">
+
+    <div class="story-left">
+      <p class="story-eyebrow">Our Story</p>
+      <h2 class="story-title">Two minds.<br><span class="story-title-accent">One purpose.</span></h2>
+      <div class="story-divider"></div>
+      <div class="story-body">
+        <p>Velmo nace del sueño compartido de Carlos Tovar, diseñador gráfico, y José Molina, psicólogo.</p>
+        <p>Dos jóvenes apasionados por el deporte, la naturaleza y el poder de las ideas bien hechas.</p>
+        <p>Desde Pitalito, Huila, decidieron crear una marca que representara disciplina, equilibrio mental y conexión con lo esencial.</p>
+        <p>Así nació Velmo, mucho más que ropa deportiva: una comunidad que elige vivir con propósito.</p>
+      </div>
+    </div>
+
+    <div class="founders-grid">
+     <div class="founder-card">
+  <img src="img/carlos.png" alt="Carlos Tovar">
+  <div class="founder-info">
+    <div class="founder-name">Carlos Tovar</div>
+    <div class="founder-role">Graphic Designer</div>
+  </div>
+</div>
+
+<div class="founder-card">
+  <img src="img/jose.png" alt="José Molina">
+  <div class="founder-info">
+    <div class="founder-name">José Molina</div>
+    <div class="founder-role">Psychologist</div>
+  </div>
+ </div>
+   </div>
+
+    <div class="story-values">
+      <div class="story-value-item">
+        <div class="story-value-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12,2 15,8.5 22,9.5 17,14 18.5,21 12,17.5 5.5,21 7,14 2,9.5 9,8.5"/></svg>
+        </div>
+        <div class="story-value-name">Diseñado para<br>tu mejor versión</div>
+      </div>
+      <div class="story-value-sep"></div>
+      <div class="story-value-item">
+        <div class="story-value-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 004.69 21C12 21 17 16 17 8z"/><path d="M17 8C19 10 20 13 19 17"/><path d="M3.82 19.34C6 17 9 15 12 15"/></svg>
+        </div>
+        <div class="story-value-name">Inspirado en<br>la naturaleza</div>
+      </div>
+      <div class="story-value-sep"></div>
+      <div class="story-value-item">
+        <div class="story-value-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        </div>
+        <div class="story-value-name">Hecho para<br>nuestra gente</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MISSION VISION VALUES -->
+<section class="mvv-section">
+  <div class="mvv-grid">
+
+    <div class="mvv-card">
+      <div class="mvv-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8" stroke-dasharray="4 2"/><line x1="12" y1="2" x2="12" y2="5"/></svg>
+      </div>
+      <p class="mvv-label">Mission</p>
+      <h3 class="mvv-title">Misión</h3>
+      <p class="mvv-body">Diseñar ropa deportiva funcional, cómoda y responsable, que inspire a las personas a moverse, crecer y conectar con lo que realmente importa.</p>
+    </div>
+
+    <div class="mvv-card">
+      <div class="mvv-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="21"/><line x1="3" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="21" y2="12"/></svg>
+      </div>
+      <p class="mvv-label">Vision</p>
+      <h3 class="mvv-title">Visión</h3>
+      <p class="mvv-body">Ser la marca colombiana líder en ropa deportiva, reconocida por su calidad, diseño y compromiso con el bienestar físico, mental y ambiental.</p>
+    </div>
+
+    <div class="mvv-card">
+      <div class="mvv-icon">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </div>
+      <p class="mvv-label">Values</p>
+      <h3 class="mvv-title">Valores</h3>
+      <ul class="mvv-list">
+        <li>Autenticidad</li>
+        <li>Disciplina</li>
+        <li>Respeto</li>
+        <li>Bienestar integral</li>
+        <li>Orgullo por lo nuestro</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PITALITO -->
+<section class="pitalito-section">
+  <div class="pitalito-left">
+    <p class="pitalito-eyebrow">Why it matters</p>
+    <h2 class="pitalito-title">Colombian product.<br>Made in Pitalito, Huila.</h2>
+    <div class="pitalito-divider"></div>
+    <div class="pitalito-body">
+      <p>Elegir Velmo es elegir lo que somos. Cada prenda es diseñada y producida en Pitalito, con manos locales, talento colombiano y amor por nuestra tierra.</p>
+      <p>Apoyamos el desarrollo de nuestra región, creamos empleo y llevamos en alto el nombre del Huila a cada paso.</p>
+    </div>
+    <p class="pitalito-hashtag">#HechoConPropósito</p>
+  </div>
+
+  <div class="pitalito-right">
+    <img src="img/Montaña_1.png" alt="Pitalito Huila">
+    <div class="location-badge">
+      <svg viewBox="0 0 40 55" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5,15 Q5,2 20,2 Q35,2 35,15 Q35,28 20,50 Q5,28 5,15Z"/>
+        <circle cx="20" cy="15" r="5"/>
+        <path d="M8,28 Q4,32 3,38 L10,36 L14,42 L16,34 L20,50 L24,34 L26,42 L30,36 L37,38 Q36,32 32,28" fill="rgba(230,160,82,0.15)" stroke="rgba(230,160,82,0.4)" stroke-width="0.8"/>
+      </svg>
+      <div class="location-badge-text">
+        <p class="location-badge-label">Hecho en</p>
+        <p class="location-badge-name">PITALITO</p>
+        <p class="location-badge-sub">Huila · Colombia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER STRIP -->
+<div class="footer-strip">
+
+  <div class="fstrip-item">
+    <div class="fstrip-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E6A052" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+        <path d="M7 11c1-3 3-5 5-5s4 2 5 5"/>
+        <path d="M7 11c1 2 3 4 5 4s4-2 5-4"/>
+        <line x1="12" y1="6" x2="12" y2="18"/>
+      </svg>
+    </div>
+    <span class="fstrip-name">Sustainable<br>Fabrics</span>
+  </div>
+
+  <div class="fstrip-sep"></div>
+
+  <div class="fstrip-item">
+    <div class="fstrip-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E6A052" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2C8 2 4 5.5 4 9.5c0 6 8 12.5 8 12.5s8-6.5 8-12.5C20 5.5 16 2 12 2z"/>
+        <circle cx="12" cy="9.5" r="3"/>
+      </svg>
+    </div>
+    <span class="fstrip-name">Local<br>Production</span>
+  </div>
+
+  <div class="fstrip-sep"></div>
+
+  <!-- Logo Velmo reemplaza la V SVG -->
+  <div class="fstrip-item">
+    <img src="img/velmoV.png" alt="Velmo" style="height: 100px; width: auto;">
+  </div>
+
+  <div class="fstrip-sep"></div>
+
+  <div class="fstrip-item">
+    <div class="fstrip-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E6A052" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="5" r="3"/>
+        <path d="M6 21v-2a4 4 0 014-4h1"/>
+        <path d="M18 14l-4 4 2 3 4-7z"/>
+        <path d="M14 14l1-3"/>
+      </svg>
+    </div>
+    <span class="fstrip-name">Made for<br>Movement</span>
+  </div>
+
+  <div class="fstrip-sep"></div>
+
+  <div class="fstrip-item">
+    <div class="fstrip-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#E6A052" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 010 20"/>
+        <path d="M12 2a15.3 15.3 0 000 20"/>
+      </svg>
+    </div>
+    <span class="fstrip-name">Rooted in<br>Colombia</span>
+  </div>
+
+</div>
+
+<!-- MAIN FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-col">
+      <img src="img/Velmo_logotxt.png" alt="Velmo" class="footer-logo-img">
+    </div>
+    <div class="footer-col">
+      <h4>Productos</h4>
+      <ul>
+        <li><a href="index.html#productos">Camisillas</a></li>
+        <li><a href="index.html#productos">Busos sin mangas</a></li>
+        <li><a href="index.html#productos">Colecciones</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Nosotros</h4>
+      <ul>
+        <li><a href="nosotros.html">Nuestra historia</a></li>
+        <li><a href="nosotros.html#mision">Misión y visión</a></li>
+        <li><a href="nosotros.html">Hecho en Pitalito</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Sostenibilidad</h4>
+      <ul>
+        <li><a href="#">Nuestro compromiso</a></li>
+        <li><a href="#">Materiales sostenibles</a></li>
+        <li><a href="#">Cuidado del planeta</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <ul>
+        <li><a href="#">Preguntas frecuentes</a></li>
+        <li><a href="#">Envíos y devoluciones</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Síguenos</h4>
+      <div class="social-icons">
+        <div class="social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg></div>
+        <div class="social-icon"><svg viewBox="0 0 24 24"><path d="M21 2H3v16l4-4h14V2zM9 8h6M9 12h4"/></svg></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 <span>VELMO</span> · Pitalito, Huila · Colombia · Todos los derechos reservados</p>
+    <p class="footer-copy">VEL — Velocidad · Movimiento &nbsp;|&nbsp; MO — Motivación · Momento</p>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/+573103521082" target="_blank" class="whatsapp-float" title="Escríbenos por WhatsApp">
+  <img src="img/WhatsApp_icon.png" alt="WhatsApp">
+</a>
+
+</body>
+</html>
