@@ -1010,6 +1010,176 @@
   100% { transform: translateY(0px); }
 }
 
+/* ═══════════════ RESPONSIVE MÓVIL ═══════════════ */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 0 20px;
+    height: 56px;
+  }
+  .nav-links { display: none; } /* oculta links en móvil */
+  .nav-logo img { height: 60px; }
+
+  /* HERO */
+  .hero {
+    padding: 90px 24px 48px;
+    min-height: 100svh;
+  }
+  .hero-title { font-size: 48px; }
+  .hero-title-accent { font-size: 48px; }
+  .hero-features { display: none; } /* oculta features flotantes */
+  .hero-content { max-width: 100%; }
+  .hero-desc { max-width: 100%; }
+
+  /* STATS BAR */
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px 20px;
+  }
+  .stat-item { border-right: none; border-bottom: 1px solid rgba(230,160,82,0.15); }
+
+  /* PRODUCTS */
+  .section-products { padding: 40px 20px; }
+  .products-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-left: 0;
+  }
+  .shirts-display {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .shirt-img { max-width: 280px; }
+
+  /* VALUES BAR */
+  .values-bar {
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+  .value-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 14px 12px;
+  }
+
+  /* BRAND STORY */
+  .brand-story {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+    gap: 28px;
+  }
+  .brand-values {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* NATURE SECTION */
+  .section-nature {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+  .nature-left { padding-left: 0; }
+  .nature-title { font-size: 38px; }
+  .nature-deco-img { max-width: 260px; }
+
+  /* COLLECTION */
+  .collection { padding: 40px 20px; }
+  .product-grid { grid-template-columns: 1fr; gap: 20px; }
+
+  /* LIFESTYLE */
+  .section-lifestyle { padding: 40px 20px; }
+  .lifestyle-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .lifestyle-cta {
+    grid-column: 1 / -1; /* ocupa todo el ancho */
+  }
+  .lifestyle-cta-title { font-size: 36px; }
+  .lifestyle-cta-accent { font-size: 36px; }
+
+  /* SUSTAIN */
+  .sustain { padding: 40px 20px; }
+  .sustain-grid { grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  footer { padding: 40px 20px 24px; }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .footer-logo-col {
+    grid-column: 1 / -1;
+    margin-bottom: 8px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* NOSOTROS */
+  .about-hero { padding: 0 20px 48px; min-height: 60vh; }
+  .hero-text h1 { font-size: 52px; }
+  .story-section { padding: 40px 20px; }
+  .story-grid { grid-template-columns: 1fr; gap: 28px; }
+  .founders-grid { grid-template-columns: 1fr 1fr; }
+  .story-values { flex-direction: row; flex-wrap: wrap; justify-content: center; height: auto; padding: 20px; }
+  .story-value-sep { display: none; }
+  .mvv-section { padding: 40px 20px; }
+  .mvv-grid { grid-template-columns: 1fr; }
+  .mvv-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 24px 0; }
+  .pitalito-left { width: 100%; padding: 40px 20px; }
+  .location-badge { right: 16px; bottom: 16px; padding: 12px 16px; }
+  .footer-strip { padding: 20px; gap: 12px; }
+  .fstrip-sep { display: none; }
+
+  /* CONTACTO */
+  .contact-hero { padding: 0 20px; min-height: 60vh; }
+  .contact-main { padding: 40px 20px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .more-contact { padding: 40px 20px; }
+  .more-grid { grid-template-columns: 1fr 1fr; }
+  .more-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 20px 16px; }
+  .values-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; }
+  .vstrip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+
+  /* SOSTENIBILIDAD */
+  .sost-hero { min-height: 70vh; }
+  .hero-content { padding: 80px 24px 48px; }
+  .hero-title { font-size: 52px; }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .pillar-card { padding: 28px 20px; }
+  .pillar-name { font-size: 16px; }
+  .cta-strip { flex-direction: column; padding: 32px 20px; text-align: center; gap: 24px; }
+  .cta-strip-left { flex-direction: column; align-items: center; }
+  .cta-btn { width: 100%; justify-content: center; }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+}
+
+/* ═══════════════ RESPONSIVE TABLET ═══════════════ */
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .hero-title { font-size: 56px; }
+  .hero-title-accent { font-size: 56px; }
+  .hero-features { right: 20px; }
+
+  .products-layout { grid-template-columns: 220px 1fr; }
+  .lifestyle-grid { grid-template-columns: 1fr 1fr 280px; }
+  .lifestyle-card:nth-child(3), .lifestyle-card:nth-child(4) { grid-column: span 1; }
+
+  .story-grid { grid-template-columns: 200px 1fr 180px; }
+  .contact-grid { gap: 32px; }
+  .more-grid { grid-template-columns: repeat(2, 1fr); }
+  .pillars { grid-template-columns: repeat(2, 1fr); }
+
+  footer { padding: 40px 28px 24px; }
+  .footer-top { grid-template-columns: 160px 1fr 1fr 1fr 1fr; gap: 20px; }
+}
+
 </style>
 </head>
 <body>
