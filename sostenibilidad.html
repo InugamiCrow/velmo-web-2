@@ -319,101 +319,120 @@
     100% { transform: translateY(0px); }
   }
 
-  /* ═══════════════ RESPONSIVE MÓVIL ═══════════════ */
+  /* ═══ RESPONSIVE MÓVIL ═══ */
 @media (max-width: 768px) {
 
   /* NAVBAR */
-  .navbar {
-    padding: 0 20px;
-    height: 56px;
-  }
-  .nav-links { display: none; } /* oculta links en móvil */
-  .nav-logo img { height: 60px; }
+  .navbar { padding: 0 16px; height: 56px; }
+  .nav-logo img { height: 52px !important; }
+  .nav-links { display: none; }
+  .nav-icons { display: none; }
 
-  /* HERO */
-  .hero {
-    padding: 90px 24px 48px;
-    min-height: 100svh;
+  /* HAMBURGER */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
   }
-  .hero-title { font-size: 48px; }
-  .hero-title-accent { font-size: 48px; }
-  .hero-features { display: none; } /* oculta features flotantes */
-  .hero-content { max-width: 100%; }
-  .hero-desc { max-width: 100%; }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: #fff;
+    border-radius: 2px;
+  }
 
-  /* STATS BAR */
-  .stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    padding: 16px 20px;
-  }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(230,160,82,0.15); }
-
-  /* PRODUCTS */
-  .section-products { padding: 40px 20px; }
-  .products-layout {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding-left: 0;
-  }
-  .shirts-display {
+  /* MENÚ MÓVIL */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px; left: 0; right: 0; bottom: 0;
+    background: rgba(10,15,12,0.98);
+    z-index: 99;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 40px 20px;
   }
-  .shirt-img { max-width: 280px; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 800;
+    letter-spacing: 4px; text-transform: uppercase;
+    color: #fff; text-decoration: none;
+    width: 100%; max-width: 320px;
+    text-align: center;
+    background: var(--green-3);
+    border: 1px solid rgba(230,160,82,0.2);
+    border-radius: 4px;
+    padding: 10px 20px;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .mobile-menu a:hover,
+  .mobile-menu a.active {
+    color: var(--gold-light);
+    background: var(--green-2);
+    border-color: rgba(230,160,82,0.5);
+  }
+  .mobile-menu-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none; border: none;
+    color: rgba(255,255,255,0.6);
+    font-size: 28px; cursor: pointer;
+  }
 
-  /* VALUES BAR */
-  .values-bar {
-    grid-template-columns: 1fr 1fr;
-    padding: 20px;
+  /* HERO */
+  .sost-hero {
+     min-height: 50vh;
+     padding: 80px 20px 40px;
+    align-items: flex-end;
+    margin-top: 56px; /* agrega esta línea */
+
   }
-  .value-item {
+  .hero-content {
+    padding: 40px 20px;
+    max-width: 100%;
+  }
+  .hero-title { font-size: 48px; }
+  .hero-desc { font-size: 13px; max-width: 100%; }
+
+  /* PILLARS */
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .pillar-card {
+    padding: 24px 16px;
     border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-
-  /* BRAND STORY */
-  .brand-story {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
-    gap: 28px;
+  .pillar-card:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.06);
   }
-  .brand-values {
-    grid-template-columns: 1fr 1fr;
+  .pillar-card:nth-last-child(-n+2) { border-bottom: none; }
+  .pillar-name { font-size: 15px; }
+  .pillar-desc { font-size: 12px; }
+
+  /* CTA STRIP */
+  .cta-strip {
+    flex-direction: column;
+    padding: 32px 20px;
+    text-align: center;
+    gap: 20px;
   }
-
-  /* NATURE SECTION */
-  .section-nature {
-    grid-template-columns: 1fr;
-    padding: 40px 20px;
-  }
-  .nature-left { padding-left: 0; }
-  .nature-title { font-size: 38px; }
-  .nature-deco-img { max-width: 260px; }
-
-  /* COLLECTION */
-  .collection { padding: 40px 20px; }
-  .product-grid { grid-template-columns: 1fr; gap: 20px; }
-
-  /* LIFESTYLE */
-  .section-lifestyle { padding: 40px 20px; }
-  .lifestyle-grid {
-    grid-template-columns: 1fr 1fr;
+  .cta-strip-left {
+    flex-direction: column;
+    align-items: center;
     gap: 12px;
   }
-  .lifestyle-cta {
-    grid-column: 1 / -1; /* ocupa todo el ancho */
-  }
-  .lifestyle-cta-title { font-size: 36px; }
-  .lifestyle-cta-accent { font-size: 36px; }
-
-  /* SUSTAIN */
-  .sustain { padding: 40px 20px; }
-  .sustain-grid { grid-template-columns: 1fr; }
+  .cta-strip-logo { width: 52px; }
+  .cta-strip-line1, .cta-strip-line2 { font-size: 20px; }
+  .cta-btn { width: 100%; justify-content: center; }
 
   /* FOOTER */
-  footer { padding: 40px 20px 24px; }
+  footer { padding: 36px 20px 24px; }
   .footer-top {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
@@ -422,73 +441,29 @@
     grid-column: 1 / -1;
     margin-bottom: 8px;
   }
+  .footer-social { grid-column: 1 / -1; }
   .footer-bottom {
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
     text-align: center;
   }
 
-  /* NOSOTROS */
-  .about-hero { padding: 0 20px 48px; min-height: 60vh; }
-  .hero-text h1 { font-size: 52px; }
-  .story-section { padding: 40px 20px; }
-  .story-grid { grid-template-columns: 1fr; gap: 28px; }
-  .founders-grid { grid-template-columns: 1fr 1fr; }
-  .story-values { flex-direction: row; flex-wrap: wrap; justify-content: center; height: auto; padding: 20px; }
-  .story-value-sep { display: none; }
-  .mvv-section { padding: 40px 20px; }
-  .mvv-grid { grid-template-columns: 1fr; }
-  .mvv-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 24px 0; }
-  .pitalito-left { width: 100%; padding: 40px 20px; }
-  .location-badge { right: 16px; bottom: 16px; padding: 12px 16px; }
-  .footer-strip { padding: 20px; gap: 12px; }
-  .fstrip-sep { display: none; }
-
-  /* CONTACTO */
-  .contact-hero { padding: 0 20px; min-height: 60vh; }
-  .contact-main { padding: 40px 20px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-  .more-contact { padding: 40px 20px; }
-  .more-grid { grid-template-columns: 1fr 1fr; }
-  .more-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 20px 16px; }
-  .values-strip { grid-template-columns: 1fr 1fr; padding: 24px 20px; }
-  .vstrip-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
-
-  /* SOSTENIBILIDAD */
-  .sost-hero { min-height: 70vh; }
-  .hero-content { padding: 80px 24px 48px; }
-  .hero-title { font-size: 52px; }
-  .pillars { grid-template-columns: 1fr 1fr; }
-  .pillar-card { padding: 28px 20px; }
-  .pillar-name { font-size: 16px; }
-  .cta-strip { flex-direction: column; padding: 32px 20px; text-align: center; gap: 24px; }
-  .cta-strip-left { flex-direction: column; align-items: center; }
-  .cta-btn { width: 100%; justify-content: center; }
-
-  /* WHATSAPP FLOAT */
-  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+  /* WHATSAPP */
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 16px; }
 }
 
-/* ═══════════════ RESPONSIVE TABLET ═══════════════ */
+/* TABLET */
 @media (max-width: 1024px) and (min-width: 769px) {
-
-  .hero-title { font-size: 56px; }
-  .hero-title-accent { font-size: 56px; }
-  .hero-features { right: 20px; }
-
-  .products-layout { grid-template-columns: 220px 1fr; }
-  .lifestyle-grid { grid-template-columns: 1fr 1fr 280px; }
-  .lifestyle-card:nth-child(3), .lifestyle-card:nth-child(4) { grid-column: span 1; }
-
-  .story-grid { grid-template-columns: 200px 1fr 180px; }
-  .contact-grid { gap: 32px; }
-  .more-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-logo img { height: 70px !important; }
   .pillars { grid-template-columns: repeat(2, 1fr); }
-
-  footer { padding: 40px 28px 24px; }
   .footer-top { grid-template-columns: 160px 1fr 1fr 1fr 1fr; gap: 20px; }
 }
 
+/* DESKTOP oculta hamburger */
+@media (min-width: 769px) {
+  .hamburger { display: none !important; }
+  .mobile-menu { display: none !important; }
+}
 </style>
 </head>
 <body>
@@ -516,6 +491,19 @@
       <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
     </button>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menú">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose">✕</button>
+  <a href="index.html">Inicio</a>
+  <a href="index.html#productos">Colecciones</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="sostenibilidad.html" class="active">Sostenibilidad</a>
+  <a href="contacto.html">Contacto</a>
+</div>
+
 </nav>
 
 <!-- HERO -->
@@ -666,6 +654,17 @@
 <a href="https://wa.me/+573103521082" target="_blank" class="whatsapp-float" title="Escríbenos por WhatsApp">
   <img src="img/WhatsApp_icon.png" alt="WhatsApp">
 </a>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuClose = document.getElementById('menuClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+</script>
 
 </body>
 </html>
